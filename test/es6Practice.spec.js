@@ -199,7 +199,7 @@ describe('`Set` lets you store unique values of any type', function(){
     let set = new Set();
 
     set.add(1);
-    set.add(1);
+    set.add(2);
     const expectedSize = 2;
 
     assert.equal(set.size, expectedSize);
@@ -208,6 +208,7 @@ describe('`Set` lets you store unique values of any type', function(){
   it('the string "1" is different to the number 1', function() {
     let set = new Set();
     set.add(1);
+    set.add('1');
 
     assert.equal(set.size, 2);
   });
@@ -215,7 +216,7 @@ describe('`Set` lets you store unique values of any type', function(){
   it('even NaN is equal to NaN', function() {
     let set = new Set();
     set.add(NaN);
-    set.add(Na);
+    set.add(NaN);
 
     assert.equal(set.size, 1);
   });
@@ -224,7 +225,7 @@ describe('`Set` lets you store unique values of any type', function(){
     let set = new Set();
     set.add(+0);
     set.add(0);
-    set.add('-0');
+    set.add(-0);
 
     assert.deepEqual([...set.values()], [+0]);
   });
