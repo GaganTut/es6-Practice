@@ -155,8 +155,8 @@ describe('`Map` is a key/value map', function(){
 
   it('provides `new Map().set()` to add key+value pair, `get()` to read it by key', function() {
     let map = new Map();
-    map.set('key', null);
-    const value = map.get();
+    map.set('key', 'value');
+    const value = map.get('key');
 
     assert.equal(value, 'value');
   });
@@ -164,7 +164,7 @@ describe('`Map` is a key/value map', function(){
   it('`has()` tells if map has the given key', function() {
     let map = new Map();
     map.set('key', 'value');
-    const hasIt = map.hazz;
+    const hasIt = map.has('key');
 
     assert.equal(hasIt, true);
   });
@@ -173,8 +173,7 @@ describe('`Map` is a key/value map', function(){
     let map = new Map();
     map.set('1', 'one');
     map.set('2', 'two');
-    const mapAsArray = map; // hint: kata #29 http://tddbin.com/#?kata=es6/language/array-api/from
-
+    const mapAsArray = Array.from(map);
     assert.deepEqual(mapAsArray, [['1', 'one'], ['2', 'two']]);
   });
 
@@ -184,7 +183,6 @@ describe('`Map` is a key/value map', function(){
     const otherObj = {x: 1};
     let map = new Map();
     map.set(obj, '');
-    map.set(otherObj, '');
 
     assert.equal(map.has(otherObj), false);
   });
